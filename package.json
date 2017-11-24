@@ -22,6 +22,8 @@
     "pug": "^2.0.0-rc.1"
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-exec": "^3.0.0",
     "nodemon": "^1.8.1"
   }
 }
