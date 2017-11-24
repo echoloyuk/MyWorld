@@ -1,0 +1,22 @@
+{
+  "name": "myworld",
+  "version": "0.0.1",
+  "description": "Remain to be seen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echoloyuk/MyWorld.git"
+  },
+  "author": "machi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/echoloyuk/MyWorld/issues"
+  },
+  "homepage": "https://github.com/echoloyuk/MyWorld#readme",
+  "dependencies": {
+    "koa": "^2.4.1"
+  }
+}
