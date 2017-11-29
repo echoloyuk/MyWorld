@@ -34,6 +34,19 @@ module.exports = {
             presets: ['stage-2', 'react']
           }
         }
+      }, {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }, {
+        test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
+        use: 'file-loader?name=' + STATIC_END_PATH + '/[name].[hash].[ext]'
+      }, {
+        test: /\.json$/,
+        loader: "json-loader"
       }
     ]
   }
