@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 
 const STATIC_START_PATH = 'app/pages/'; // 前端代码开始位置
-const STATIC_END_PATH = 'public/'; // 前端代码最终放置的位置
+const STATIC_END_PATH = 'assets/'; // 前端代码最终放置的位置
 
 const getEntry = () => {
   const fileList = glob.sync('**/*.js?(x)', {
@@ -43,7 +43,7 @@ module.exports = {
         ]
       }, {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
-        use: 'file-loader?name=' + STATIC_END_PATH + '/[name].[hash].[ext]'
+        use: 'file-loader?name=images/[name].[hash].[ext]'
       }, {
         test: /\.json$/,
         loader: "json-loader"
