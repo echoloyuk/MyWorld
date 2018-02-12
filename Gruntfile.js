@@ -34,5 +34,11 @@ module.exports = function (grunt) {
       'exec:webpack',
       'exec:start-server-dev'
     ]);
+  });
+
+  grunt.registerTask('fedev', function () {
+    task.run([
+      'exec:webpack-watching'
+    ]);
   })
 }
