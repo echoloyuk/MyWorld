@@ -5,6 +5,8 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const static = require('koa-static')
+const mount = require('koa-mount')
 
 // use xtemplate
 const xtpl = require('xtpl/lib/koa2');
@@ -24,7 +26,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(mount('/assets', static(__dirname + '/assets')))
 
 /**
  * middlewares for default layout
