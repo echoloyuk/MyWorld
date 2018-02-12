@@ -6,6 +6,12 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+// use xtemplate
+const xtpl = require('xtpl/lib/koa2');
+xtpl(app, {
+  views: './app/views'
+});
+
 const index = require('./app/routes/index')
 const users = require('./app/routes/users')
 
@@ -20,9 +26,17 @@ app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
-app.use(views(__dirname + '/app/views', {
-  extension: 'pug'
-}))
+// middlewares for default layout
+app.use(async (ctx, next) => {
+  ctx.superRender = async (path, option) => {
+    let html = await ctx.render('layout', {
+      ...option,
+      _realPath: path
+    })
+    return html
+  }
+  await next();
+});
 
 // logger
 app.use(async (ctx, next) => {
