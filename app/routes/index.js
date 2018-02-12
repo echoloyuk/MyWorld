@@ -4,7 +4,7 @@ router.get('/', async (ctx, next) => {
   // ctx.body = await ctx.render('index', {
   //   title: 'huayun.mc'
   // })
-  ctx.body = await ctx.superRender('index', {
+  ctx.body = await ctx.renderTPL('index', {
     title: 'machi11'
   });
 })

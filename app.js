@@ -26,12 +26,18 @@ app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
-// middlewares for default layout
+/**
+ * middlewares for default layout
+ * 走xtemplate，所有页面都走layout，再由layout分发
+ * layout中的独占参数
+ *  _realPath: 需要加载的xtpl
+ */
 app.use(async (ctx, next) => {
-  ctx.superRender = async (path, option) => {
+  ctx.renderTPL = async (path, option) => {
     let html = await ctx.render('layout', {
-      ...option,
-      _realPath: path
+      _realPath: path,
+      title: 'MyWorld',
+      ...option
     })
     return html
   }
