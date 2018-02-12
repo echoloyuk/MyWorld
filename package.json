@@ -9,7 +9,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "co": "^4.6.0",
     "debug": "^2.6.3",
     "glob": "^7.1.2",
     "koa": "^2.2.0",
