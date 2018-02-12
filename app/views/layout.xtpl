@@ -7,6 +7,6 @@
   <title>{{title}}</title>
 </head>
 <body>
-  {{include(_realPath+'.xtpl')}}
+  {{include('./' + _realPath+'.xtpl')}}
 </body>
 </html>
