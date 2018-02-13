@@ -32,7 +32,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['stage-2', 'react']
+            presets: ['stage-2', 'react'],
+            plugins: [['import', {
+              "libraryName": "antd",
+              "style": "css"
+            }]]
           }
         }
       }, {
@@ -48,6 +52,22 @@ module.exports = {
       }, {
         test: /\.json$/,
         loader: "json-loader"
+      }, {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ],
+        include: [
+          path.resolve(__dirname, 'node_modules')
+        ]
+      }, {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   }
