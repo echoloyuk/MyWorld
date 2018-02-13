@@ -23,6 +23,7 @@ module.exports = {
     path: path.resolve(__dirname, STATIC_END_PATH),
     filename: '[name].bundle.js'
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {

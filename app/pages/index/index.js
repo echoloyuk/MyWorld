@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const Component = React.Component;
 import './index.scss';
 
+import Index from './container/index';
 
 ReactDOM.render(
-  <div className="test">
-    Hello
-  </div>
-  , document.getElementById('mainContainer'));
+  <Index />
+  , document.getElementById('app'));
