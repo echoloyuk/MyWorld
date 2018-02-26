@@ -1,16 +1,9 @@
 const router = require('koa-router')();
 const index = require('../controller/index');
-
-// router.get('/', async (ctx, next) => {
-  // ctx.body = await ctx.render('index', {
-  //   title: 'huayun.mc'
-  // })
-  // ctx.body = await ctx.renderTPL('index', {
-  //   title: 'machi11'
-  // });
-// })
+const manager = require('../controller/manager');
 
 router.get('/', index.index);
+router.get('/manager', manager.index);
 
 router.get('/string', async (ctx, next) => {
   ctx.body = 'koa2 string'
