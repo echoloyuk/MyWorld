@@ -3,7 +3,7 @@ const dao = require('../dao/db');
 module.exports = {
   index: async (ctx, next) => {
 
-    const res = await dao.test('select * from articles');
+    const res = await dao.test('select * from users');
     console.log(res);
     console.log('@@@@@@@@@@@@@@@');
 
