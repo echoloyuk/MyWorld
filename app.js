@@ -15,7 +15,8 @@ xtpl(app, {
 });
 
 const index = require('./app/routes/index')
-const users = require('./app/routes/users')
+const manager = require('./app/routes/manager')
+
 
 // error handler
 onerror(app)
@@ -56,7 +57,7 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(manager.routes(), manager.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
