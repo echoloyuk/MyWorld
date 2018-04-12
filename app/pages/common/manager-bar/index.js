@@ -1,5 +1,6 @@
 import React from 'react';
 import {Menu, Icon, Button} from 'antd';
+import {Link} from 'react-router-dom';
 
 import config from '../../../config/manager';
 
@@ -19,8 +20,10 @@ export default class ManagerBar extends React.Component {
             {config.nav && config.nav.map((item, index) => {
               return (
                 <Menu.Item key={index}>
-                  <Icon type={item.icon} />
-                  <span>{item.title}</span>
+                  <Link to={item.to}>
+                    <Icon type={item.icon} />
+                    <span>{item.title}</span>
+                  </Link>
                 </Menu.Item>
               )
             })}

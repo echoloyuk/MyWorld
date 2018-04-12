@@ -3,16 +3,20 @@ module.exports = {
     {
       title: '工作台',
       url: '',
-      icon: 'home'
+      icon: 'home',
+      to: '/dashboard'
     }, {
       title: '文章管理',
-      icon: 'file-text'
+      icon: 'file-text',
+      to: '/article'
     }, {
       title: '标签管理',
-      icon: 'tags'
+      icon: 'tags',
+      to: '/tags'
     }, {
       title: '用户管理',
-      icon: 'team'
+      icon: 'team',
+      to: '/users'
     }
   ]
 }
