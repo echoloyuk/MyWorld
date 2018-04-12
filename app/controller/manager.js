@@ -10,5 +10,10 @@ module.exports = {
     ctx.body = await ctx.renderTPL('index', {
       title: '管理后台'
     })
+  },
+  dashboard: async (ctx, next) => {
+    ctx.body = await ctx.renderTPL('manager/dashboard', {
+      title: '管理后台'
+    });
   }
 }

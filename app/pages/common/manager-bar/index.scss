@@ -1,0 +1,25 @@
+$left-width: 200px;
+$top-height: 0px;
+$bg: #001529;
+$z-index: 10000;
+
+.manager-bar-panel {
+  .left-side {
+    position: fixed;
+    width: $left-width;
+    top: $top-height;
+    bottom: 0;
+    overflow: auto;
+    background: $bg;
+    z-index: $z-index;
+  }
+  .top-side {
+    position: fixed;
+    z-index: $z-index + 1;
+    height: $top-height;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: $bg;
+  }
+}
