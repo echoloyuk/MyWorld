@@ -1,22 +1,22 @@
 module.exports = {
+  // key必须唯一
   nav: [
     {
       title: '工作台',
-      url: '',
       icon: 'home',
-      to: '/dashboard'
+      key: 'dashboard'
     }, {
       title: '文章管理',
       icon: 'file-text',
-      to: '/article'
+      key: 'article'
     }, {
       title: '标签管理',
       icon: 'tags',
-      to: '/tags'
+      key: 'tags'
     }, {
       title: '用户管理',
       icon: 'team',
-      to: '/users'
+      key: 'users'
     }
   ]
 }

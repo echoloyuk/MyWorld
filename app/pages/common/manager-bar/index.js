@@ -8,19 +8,22 @@ import './index.scss';
 
 export default class ManagerBar extends React.Component {
   render () {
+    let hash = window.location.hash;
+    hash = hash.replace(/#\//g, '');
+    let defaultKey = config.nav[0].key;
     return (
       <div className="manager-bar-panel">
         <div className="top-side">
-
         </div>
         <div className="left-side">
           <Menu
-            defaultSelectedKeys={['0']}
+            defaultSelectedKeys={[defaultKey]}
+            selectedKeys={[hash || defaultKey]}
             theme="dark" >
             {config.nav && config.nav.map((item, index) => {
               return (
-                <Menu.Item key={index}>
-                  <Link to={item.to}>
+                <Menu.Item key={item.key}>
+                  <Link to={item.key}>
                     <Icon type={item.icon} />
                     <span>{item.title}</span>
                   </Link>
@@ -28,6 +31,7 @@ export default class ManagerBar extends React.Component {
               )
             })}
           </Menu>
+          <div>{this.props.location}</div>
         </div>
       </div>
     )
