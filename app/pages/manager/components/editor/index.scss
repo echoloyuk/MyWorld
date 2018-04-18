@@ -1,0 +1,20 @@
+.outer {
+  height: 100%;
+}
+.editor-panel {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+
+  .editor {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 12px;
+  }
+  .preview {
+    width: 50%;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc;
+  }
+}
