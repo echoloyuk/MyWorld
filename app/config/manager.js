@@ -3,7 +3,7 @@ module.exports = {
   nav: [
     {
       title: '工作台',
-      icon: 'home',
+      icon: 'dashboard',
       key: 'dashboard'
     }, {
       title: '文章管理',
