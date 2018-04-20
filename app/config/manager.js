@@ -10,10 +10,6 @@ module.exports = {
       icon: 'file-text',
       key: 'article'
     }, {
-      title: '新增文章',
-      icon: 'file',
-      key: 'newArticle'
-    }, {
       title: '标签管理',
       icon: 'tags',
       key: 'tags'

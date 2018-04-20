@@ -5,7 +5,7 @@ import Editor from '../components/editor/index';
 export default class NewArticle extends React.Component {
   render () {
     return (
-      <div className="new-article-panel">
+      <div className="edit-article-panel">
         <Editor />
       </div>
     )

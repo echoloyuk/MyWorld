@@ -21,6 +21,7 @@ export default class Editor extends React.Component {
     }
     this.onInputTitle = this.onInputTitle.bind(this);
     this.onInputContent = this.onInputContent.bind(this);
+    this.onScrollEditor = this.onScrollEditor.bind(this);
   }
   onInputTitle (e) {
     let val = e.target.value;
@@ -34,6 +35,15 @@ export default class Editor extends React.Component {
       source: newVal,
       html
     });
+  }
+  onScrollEditor (editor) {
+    let editorTop = editor.session.getScrollTop();
+    let editorHeight = editor.renderer.layerConfig.maxHeight;
+    let previewDom = this.refs.preview;
+    if (editorTop < 0) { // 获取的scrollTop有可能是负值
+      editorTop = 0;
+    }
+    previewDom.scrollTop = (editorTop / editorHeight) * previewDom.scrollHeight;
   }
   render() {
     const editorStyle = {
@@ -79,6 +89,7 @@ export default class Editor extends React.Component {
             </div>
             <div className="content">
               <AceEditor
+                ref="ace-editor"
                 wrapEnabled={true}
                 mode="markdown"
                 theme="textmate"
@@ -93,10 +104,13 @@ export default class Editor extends React.Component {
                 showPrintMargin={false}
                 enableLiveAutocompletion={true}
                 onChange={this.onInputContent}
+                onScroll={this.onScrollEditor}
                 style={editorStyle} />
             </div>
           </div>
-          <div className="preview markdown-panel"
+          <div 
+            ref="preview"
+            className="preview markdown-panel"
             dangerouslySetInnerHTML={{__html: `<h1 class="preview-title">${title}</h1>${html}`}} />
         </div>
       </div>
