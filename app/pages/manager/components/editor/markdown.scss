@@ -1,0 +1,61 @@
+
+$lineHeight: 1.7em;
+
+.markdown-panel {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin: 1em 0;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4, h5, h6 {
+    font-size: 1rem;
+  }
+  p {
+    margin: 1em 0;
+    line-height: $lineHeight;
+  }
+  ul, ol {
+    margin: 1em 0;
+    padding: 0 1.6rem;
+  }
+  li {
+    line-height: $lineHeight;
+
+    &>ul, &>ol {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  blockquote {
+    color: #777;
+    font-style: italic;
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 4px solid #777;
+  }
+
+  pre {
+    overflow: auto;
+    background-color: #eee;
+    margin: 0;
+    padding: 0.4rem 0.8rem;
+  }
+  code {
+    font-size: 14px;
+    background-color: #eee;
+    line-height: 1.5em;
+    font-family: Consolas, Menlo, Courier, monospace;
+    padding: 0.2rem 0;
+  }
+  img {
+    max-width: 100%;
+  }
+}

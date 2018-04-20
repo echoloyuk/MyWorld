@@ -1,6 +1,11 @@
 $ctrl-h: 40px;
 $border: #ccc;
 $color: #333;
+
+html, body {
+  font-size: 16px;
+}
+
 .outer {
   height: 100%;
   position: relative;
@@ -66,8 +71,19 @@ $color: #333;
     }
   }
   .preview {
+    padding: 16px;
     width: 50%;
     box-sizing: border-box;
     border-left: 1px solid $border;
+    overflow-y: auto;
+
+    .preview-title {
+      font-size: 36px;
+      margin: 0;
+      border-bottom: 1px solid #ccc;
+      height: 72px;
+      line-height: 56px;
+      padding-bottom: 16px;
+    }
   }
 }

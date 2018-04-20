@@ -4,6 +4,7 @@ import {Radio, Icon, Button} from 'antd';
 import marked from 'marked';
 
 import './index.scss';
+import './markdown.scss';
 import 'brace/mode/markdown';
 import 'brace/theme/textmate';
 
@@ -95,8 +96,8 @@ export default class Editor extends React.Component {
                 style={editorStyle} />
             </div>
           </div>
-          <div className="preview"
-            dangerouslySetInnerHTML={{__html: `<h1>${title}</h1>${html}`}} />
+          <div className="preview markdown-panel"
+            dangerouslySetInnerHTML={{__html: `<h1 class="preview-title">${title}</h1>${html}`}} />
         </div>
       </div>
     )
