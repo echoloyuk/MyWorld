@@ -44,6 +44,23 @@ html, body {
   align-items: stretch;
   justify-content: stretch;
 
+  &.edit-only {
+    .editor {
+      width: 100%;
+    }
+    .preview {
+      display: none;
+    }
+  }
+  &.view-only {
+    .editor {
+      display: none;
+    }
+    .preview {
+      width: 100%;
+    }
+  }
+
   .editor {
     width: 50%;
     box-sizing: border-box;

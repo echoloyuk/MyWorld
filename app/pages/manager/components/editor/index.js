@@ -2,6 +2,7 @@ import React from 'react';
 import AceEditor from 'react-ace';
 import {Radio, Icon, Button} from 'antd';
 import marked from 'marked';
+import classnames from 'classnames';
 
 import './index.scss';
 import './markdown.scss';
@@ -15,13 +16,21 @@ export default class Editor extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      type: 'mix',
       title: '',
       source: '',
-      html: '', // markdown后的正文
+      html: '' // markdown后的正文
     }
     this.onInputTitle = this.onInputTitle.bind(this);
     this.onInputContent = this.onInputContent.bind(this);
     this.onScrollEditor = this.onScrollEditor.bind(this);
+    this.onChangeType = this.onChangeType.bind(this);
+  }
+  onChangeType (e) {
+    let val = e.target.value;
+    this.setState({
+      type: val
+    })
   }
   onInputTitle (e) {
     let val = e.target.value;
@@ -52,9 +61,13 @@ export default class Editor extends React.Component {
     const {
       title,
       html,
-      source
+      source,
+      type
     } = this.state;
-
+    const editorCls = classnames('editor-panel', {
+      'edit-only': type === 'edit',
+      'view-only': type === 'view'
+    });
     return (
       <div className="outer">
         <div className="control-panel">
@@ -64,7 +77,7 @@ export default class Editor extends React.Component {
             </Button>
           </div>
           <div className="view-panel">
-            <Group value="mix" size="small">
+            <Group value={type} size="small" onChange={this.onChangeType}>
               <RButton value="mix">
                 <Icon type="appstore-o" />
               </RButton>
@@ -77,7 +90,7 @@ export default class Editor extends React.Component {
             </Group>
           </div>
         </div>
-        <div className="editor-panel">
+        <div className={editorCls}>
           <div className="editor">
             <div className="title">
               <input 
