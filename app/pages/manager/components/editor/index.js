@@ -1,6 +1,6 @@
 import React from 'react';
 import AceEditor from 'react-ace';
-import {Radio, Icon, Button} from 'antd';
+import {Radio, Icon, Button, message} from 'antd';
 import marked from 'marked';
 import classnames from 'classnames';
 
@@ -11,6 +11,11 @@ import 'brace/theme/textmate';
 
 const Group = Radio.Group;
 const RButton = Radio.Button;
+
+const ERROR_INFO = {
+  NEED_TITLE: '请填写标题',
+  NEED_CONTENT: '请填写文章正文'
+}
 
 export default class Editor extends React.Component {
   constructor (props) {
@@ -25,6 +30,27 @@ export default class Editor extends React.Component {
     this.onInputContent = this.onInputContent.bind(this);
     this.onScrollEditor = this.onScrollEditor.bind(this);
     this.onChangeType = this.onChangeType.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onSubmit (e) {
+    const {
+      title,
+      source
+    } = this.state;
+    const {
+      onFinish
+    } = this.props;
+    if (!title) {
+      message.error(ERROR_INFO.NEED_TITLE);
+      return;
+    }
+    if (!source) {
+      message.error(ERROR_INFO.NEED_CONTENT);
+      return;
+    }
+    if (onFinish && typeof onFinish === 'function') {
+      onFinish(title, source);
+    }
   }
   onChangeType (e) {
     let val = e.target.value;
@@ -72,7 +98,7 @@ export default class Editor extends React.Component {
       <div className="outer">
         <div className="control-panel">
           <div className="op-panel">
-            <Button shape="circle">
+            <Button shape="circle" onClick={this.onSubmit}>
               <Icon type="save" />
             </Button>
           </div>
